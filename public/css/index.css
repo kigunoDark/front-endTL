@@ -1,0 +1,110 @@
+body{
+    background: #f5f5f5;
+}
+
+.accept-review-button {
+    margin-bottom: 25px;
+}
+
+.modal-header{
+    border: none;
+}
+
+.input-item{
+    border:none;
+    border-bottom: 1px solid #dedede;
+    border-radius: 0%;
+}
+
+/* I suppose each button will have an uppercase */
+.btn{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    color: #dedede;
+    padding: 0px;
+}
+.rating li {
+    font-size: 24px;
+    display: inline-block;
+    margin-right: 5px;
+    
+}
+
+.rating li:hover{
+    cursor: pointer;
+    color: #e49c23;
+}
+
+.review-text{
+    color: #8f8e8c;
+}
+
+.review-board{
+    background: white;
+    margin-top: 10%;
+    padding: 5%;
+    border-radius: 1%; 
+    box-shadow: 1px 6px 6px 1px #ccc;
+}
+
+
+#review-text{
+    border:none;
+    border-bottom: 1px solid #dedede;
+}
+
+.rating
+{
+    transform: (-50%, -50%);
+    direction: rtl;
+    display: flex;
+}
+
+.rating input
+{
+    display: none;
+}
+
+.rating label
+{
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 5px;
+ 
+}
+
+.rating label::before{
+    content: '\f005';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 24px;
+    color: #8f8e8c;
+}
+
+.rating label::after{
+    content: '\f005';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 24px;
+    color: #e49c23;
+    margin-top: -36px;
+    opacity: 0;
+    transition: .5s;
+    text-shadow: 0 2px 5px rgba(0,0,0,.3);
+}
+
+.rating label:hover::after,
+.rating label:hover ~ label::after,
+.rating input:checked ~ label::after
+{
+    opacity: 1; 
+}
