@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+            <div class="block">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Модель</th>
+                            <th scope="col">Цена</th>
+                            <th scope="col">Год выпуска</th>
+                            <th scope="col">Владелец</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <% for (car of cars) { %>
+                                <tr>
+                                    <th ><%= car.type %></th>
+                                    <th ><%= car.model %></th>
+                                    <td> <%= moment(car.exp_date).format('DD-MM-YYYY') %> </td>
+                                    <td> <%= car.person_id %> </td>
+                                </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+     <form action="/add-car" method="POST">
+        <input type="text" placeholder="Марка машины" id="type" name="type" />
+        <input type="text" placeholder="Модель машины" id="model" name="model"/>
+        <input type="date" placeholder="Год выпуска" id="exp_year" name="exp_year" />
+        <input type="text" placeholder="Хозяин" id="person_id" name="person_id" />
+        <button type="submit">Добавить</button>
+     </form>
+</body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
