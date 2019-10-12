@@ -1,0 +1,12 @@
+
+.block{
+    background: white;
+    margin: 5%;
+    padding: 5%;
+    box-shadow: 1px 6px 6px 1px #ccc;
+    border-radius: 0.5%;
+}
+
+.add-element{
+    margin: 2%;
+}
