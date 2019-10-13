@@ -1,0 +1,48 @@
+  <!-- Button trigger modal -->
+  <a href="/with-owner">С водителем</a>
+  <a href="/without-owner">Бeз водителя</a>
+  <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+      Добавить
+  </button>
+      
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Добавит Автомобиль</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="/add-car" class="add-element" method="POST">
+                <div class="form-group">
+                    <label for="carType">Марка машины</label>
+                    <input type="text" class="form-control" id="carType" name="type">
+                </div>
+                <div class="form-group">
+                    <label for="carModel">Модель машины</label>
+                    <input type="text" class="form-control" id="carModel" name="model">
+                </div>
+                <div class="form-group">
+                    <label for="carExpYear">Год выпуска</label>
+                    <input type="date" class="form-control" id="carExpYear" name="exp_year">
+                </div>
+              
+                <div class="form-group">
+                    <label for="carOwner">Хозяин</label>
+                    <select class="form-control" id="carOwner" name="owner_id">
+                        <option value="">Нет хозяин</option>
+                    <% for(owner of owners) { %>
+                        <option value="<%= owner.id %>"> <%= owner.name %></option>
+                    <% } %>
+                    </select>
+                </div>
+                    <button type="submit" class="btn btn-primary float-right">Сохранить</button>
+                    <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Отменить</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>

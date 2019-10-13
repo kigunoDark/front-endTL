@@ -1,9 +1,16 @@
-const indexCont = require('../controllers/indexCont');
+const onwersCont = require('../controllers/ownersCont');
+const carsCont = require('../controllers/carsCont');
 const express = require('express');
 const router = express.Router();
 
-router.get('/', indexCont.getDriversPage);
-router.post('/add-car', indexCont.postCarInfo);
-router.post('/add-owner', indexCont.postOwnerInfo);
+// Cars 
+router.get('/with-owner', carsCont.getCarsWithOwner);
+router.get('/without-owner', carsCont.getCarsWithoutOwner);
+router.post('/add-car', carsCont.postAddCar);
+router.post('/delete-car', carsCont.deleteCar);
+
+// Owners
+router.get('/owners', onwersCont.getOwnersPage);
+router.post('/add-owner', onwersCont.postOwnerInfo);
 
 module.exports = router;

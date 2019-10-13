@@ -1,0 +1,45 @@
+ <%-include('./layouts/navbar.ejs') %>  
+
+<div class="container">
+    <div class="block">
+        <h1 class="text-center">Автомобили</h1>
+        
+        <table class="table table-bordered">
+            <thead>
+                <caption><% if (type==="with") { %> Автомобили с владельцем <% } else if (type==="without") { %> Автомобили без владельца <% } %></caption>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Модель</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col">Год выпуска</th>
+                    <th scope="col">Владелец</th>
+                    <th scope="col">Удалить</th>
+                    <th scope="col">Изменить</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <% for ( car of cars) { %>
+                        <tr>
+                            <th> <%= car.id %> </th>
+                            <td> <%= car.type %> </td>
+                            <td> <%= car.model %> </td>
+                            <td> <%= moment(car.exp_year).format('DD-MM-YYYY') %> </td>
+                            <td> <% if(type === 'with') { %><%= car.name %> <% } else if (type==='without') { %> Нет владельца <% } %> </td>
+                            <td> 
+                                <form action="/delete-car" method="POST">
+                                    <input type="text" class="hidden" name="car_id" value="<%= car.id%>"/>
+                                    <button type="submit" class="btn btn-outline-secondary"><i class="far fa-trash-alt"></i></button>
+                                </form>
+                            </td>
+                            <td> <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i></button></td>
+                        </tr>
+                        <% } %>
+            </tbody>
+            
+        </table>
+        <%-include('./modules/addCarMod.ejs')%>
+    </div>
+</div>
+
+
+<%-include('./layouts/footer.ejs') %> 

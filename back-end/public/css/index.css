@@ -7,6 +7,21 @@
     border-radius: 0.5%;
 }
 
+.hidden{
+    display: none;
+}
+
+.logo{
+    width: 60px;
+}
+
 .add-element{
     margin: 2%;
 }
+
+.navbar ul li a{
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
